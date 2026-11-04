@@ -38,6 +38,25 @@ export default function Page() {
           {/* Add Hero Images Here */}
         </div>
       </div>
+
+      <footer className="w-full border-t border-gray-200 bg-white py-6">
+        <div className="mx-auto max-w-7xl px-6 text-center">
+          <p className="text-sm text-gray-500">
+            Web Ini Di Kerjakan Oleh{" "}
+            <span className="font-semibold text-gray-900">
+              Dafa Ardianto
+            </span>
+            {" "}3420230004{" "}
+            <span className="font-semibold text-gray-700">
+              TFUIA
+            </span>
+          </p>
+          <p className="mt-1 text-xs text-gray-400">
+            © {new Date().getFullYear()} All Rights Reserved.
+          </p>
+        </div>
+      </footer>
+
     </main>
   );
 }
