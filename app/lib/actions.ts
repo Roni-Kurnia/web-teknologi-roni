@@ -13,6 +13,7 @@ export async function authenticate(
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin':
+        case 'CallbackRouteError':
           return 'Invalid credentials.';
         default:
           return 'Something went wrong.';
