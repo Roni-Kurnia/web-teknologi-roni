@@ -1,12 +1,24 @@
+'use client';
+
 import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
-import { AtSymbolIcon, KeyIcon } from '@heroicons/react/24/outline';
+import {
+  AtSymbolIcon,
+  KeyIcon,
+  ExclamationCircleIcon,
+} from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from '@/app/ui/button';
+import { useActionState } from 'react';
+import { authenticate } from '@/app/lib/actions';
 
 export default function Page() {
+  const [errorMessage, formAction, isPending] = useActionState(
+    authenticate,
+    undefined,
+  );
+
   return (
-    // Tambahkan bg-white di sini agar background selalu putih terang
     <main className="flex min-h-screen flex-col p-6 bg-white">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
         <Image
@@ -18,9 +30,8 @@ export default function Page() {
         />
       </div>
       <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20 m-auto mt-4">
-        <form className="space-y-3">
+        <form action={formAction} className="space-y-3">
           <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-            {/* Tambahkan text-gray-900 di sini agar judul teks terbaca jelas */}
             <h1 className={`${lusitana.className} mb-3 text-2xl text-gray-900`}>
               Silakan Masuk dengan akun Anda.
             </h1>
@@ -65,11 +76,16 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <Button className="mt-4 w-full">
+            <Button className="mt-4 w-full" aria-disabled={isPending}>
               Masuk <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
             </Button>
-            <div className="flex h-8 items-end space-x-1">
-              {/* Add form errors here */}
+            <div className="flex h-8 items-end space-x-1" aria-live="polite" aria-atomic="true">
+              {errorMessage && (
+                <>
+                  <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
+                  <p className="text-sm text-red-500">{errorMessage}</p>
+                </>
+              )}
             </div>
           </div>
         </form>
