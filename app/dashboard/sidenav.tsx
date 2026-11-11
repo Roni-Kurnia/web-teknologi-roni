@@ -8,7 +8,7 @@ export default function SideNav() {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link
-        className="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-600 p-4 md:h-40"
+        className="mb-2 flex h-20 items-center justify-start rounded-md bg-blue-600 p-4 md:h-40 md:items-end"
         href="/"
       >
         <div className="w-32 text-white md:w-40">
@@ -16,8 +16,9 @@ export default function SideNav() {
             src="/logo/uialogo.png"
             width={300}
             height={160}
-            className="hidden md:block"
+            className="block h-auto w-28 md:w-40 object-contain"
             alt="Banner UIA"
+            priority
           />
         </div>
       </Link>
@@ -30,8 +31,8 @@ export default function SideNav() {
             await signOut();
           }}
         >
-          <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium text-gray-900 hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
-            <PowerIcon className="w-6" />
+          <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium text-gray-900 hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 transition-colors">
+            <PowerIcon className="w-6 shrink-0" />
             <div className="hidden md:block">Keluar</div>
           </button>
         </form>

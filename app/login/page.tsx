@@ -11,6 +11,7 @@ import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from '@/app/ui/button';
 import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/actions';
+import Footer from '@/app/ui/footer';
 
 export default function Page() {
   const [errorMessage, formAction, isPending] = useActionState(
@@ -20,25 +21,26 @@ export default function Page() {
 
   return (
     <main className="flex min-h-screen flex-col p-6 bg-white">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
+      <div className="flex h-20 shrink-0 items-center justify-start rounded-lg bg-blue-500 p-4 md:h-52 md:items-end">
         <Image
           src="/logo/uialogo.png"
           width={500}
           height={360}
-          className="hidden md:block"
+          className="block h-auto w-40 md:w-96 object-contain"
           alt="Banner UIA"
+          priority
         />
       </div>
-      <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20 m-auto mt-4">
-        <form action={formAction} className="space-y-3">
-          <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-            <h1 className={`${lusitana.className} mb-3 text-2xl text-gray-900`}>
+      <div className="flex grow items-center justify-center py-8">
+        <div className="w-full max-w-md rounded-lg bg-gray-50 px-6 py-10 shadow-sm border border-gray-100 sm:px-10">
+          <form action={formAction} className="space-y-3">
+            <h1 className={`${lusitana.className} mb-3 text-2xl font-bold text-gray-900`}>
               Silakan Masuk dengan akun Anda.
             </h1>
             <div className="w-full">
               <div>
                 <label
-                  className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+                  className="mb-2 block text-xs font-medium text-gray-900"
                   htmlFor="email"
                 >
                   Email
@@ -57,7 +59,7 @@ export default function Page() {
               </div>
               <div className="mt-4">
                 <label
-                  className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+                  className="mb-2 block text-xs font-medium text-gray-900"
                   htmlFor="password"
                 >
                   Kata Sandi
@@ -76,7 +78,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <Button className="mt-4 w-full" aria-disabled={isPending}>
+            <Button className="mt-6 w-full" aria-disabled={isPending}>
               Masuk <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
             </Button>
             <div className="flex h-8 items-end space-x-1" aria-live="polite" aria-atomic="true">
@@ -87,9 +89,10 @@ export default function Page() {
                 </>
               )}
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
+      <Footer />
     </main>
   );
 }

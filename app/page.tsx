@@ -2,17 +2,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Footer from '@/app/ui/footer';
 
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
+      <div className="flex h-20 shrink-0 items-center justify-start rounded-lg bg-blue-500 p-4 md:h-52 md:items-end">
         <Image
           src="/logo/uialogo.png"
           width={500}
           height={360}
-          className="hidden md:block"
+          className="block h-auto w-40 md:w-96 object-contain"
           alt="Banner UIA"
+          priority
         />
       </div>
 
@@ -39,21 +41,7 @@ export default function Page() {
         </div>
       </div>
 
-      <footer className="mt-8 w-full border-t border-gray-200 bg-white py-6">
-          <div className="mx-auto max-w-7xl px-6 text-center">
-            <p className="text-sm text-gray-500">
-              Web ini dikerjakan oleh{" "}
-              <span className="font-semibold text-gray-900">
-                Dafa Ardianto
-              </span>
-              {" "} | 3420230004 | Teknik Informatika - TFUIA
-            </p>
-
-            <p className="mt-2 text-xs text-gray-400">
-              © {new Date().getFullYear()} All Rights Reserved.
-            </p>
-          </div>
-        </footer>
+      <Footer />
     </main>
   );
 }
