@@ -7,13 +7,14 @@ import Footer from '@/app/ui/footer';
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
+      <div className="flex h-20 shrink-0 items-center rounded-lg bg-blue-500 p-4 md:h-52 md:items-end">
         <Image
           src="/logo/uialogo.png"
           width={500}
-          height={360}
-          className="hidden md:block"
+          height={152}
+          className="block h-12 w-auto object-contain md:h-32"
           alt="Banner UIA"
+          priority
         />
       </div>
 
