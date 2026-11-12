@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { inter } from '@/app/ui/fonts';
+import type { Metadata } from "next";
+import "./globals.css";
+import { inter } from "@/app/ui/fonts";
 
 export const metadata: Metadata = {
-  title: 'Web Teknologi - UIA',
-  description: 'Pembelajaran Web Teknologi',
+  title: "Web Teknologi - UIA",
+  description: "Pembelajaran Web Teknologi",
   icons: {
-    icon: '/logo/logouiafav.png',
+    icon: "/logo/signature.png",
   },
 };
 
