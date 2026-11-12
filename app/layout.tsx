@@ -5,6 +5,9 @@ import { inter } from '@/app/ui/fonts';
 export const metadata: Metadata = {
   title: 'Web Teknologi - UIA',
   description: 'Pembelajaran Web Teknologi',
+  icons: {
+    icon: '/logo/logouiafav.png',
+  },
 };
 
 export default function RootLayout({
